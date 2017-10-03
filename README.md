@@ -159,3 +159,44 @@ Using a wordlist downloaded in https://github.com/duyetdev/bruteforce-database, 
 Using the username/password in the site, I got:  
 
 ![SecretArea-1](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/SecretArea-5.png)  
+
+## file reader
+## browser
+## authorized persons only
+## simple cipher 
+## undisputed
+## sound
+## nosignal
+## hidden flag - medium
+## lost
+## search
+## hidden flag - easy
+## location 51
+## path
+## robot
+## batman
+## wahtzdis
+
+This is a easy one! Here is what appears in the link: http://hack.bckdr.in/WAHTZDIS/:  
+
+![WAHTZDIS-1](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/wahtzdis-1.png)
+
+So... I thougth: WTF?? Then I remembered the brainfuck...  
+With some search in google, i found the JSfuck, something like brainfuck, but with other objective. The function os JSfuck is obfuscate the code of JavaScript to protect it. The cool thing is that the code in JSfuck can be runned in console, on chrome or other browser:  
+
+![WAHTZDIS-1](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/wahtzdis-2.png)  
+
+The script that i received is:
+
+```javascript
+ƒ anonymous() {
+alert('window.atob("eTB1X3czcjNfbHVja3lfN2gxNV83MW0zX24wMGI=")')
+}
+```
+
+So, the solution is:
+
+```javascript
+> atob("eTB1X3czcjNfbHVja3lfN2gxNV83MW0zX24wMGI=")
+< "y0u_w3r3_lucky_7h15_71m3_n00b"
+```
