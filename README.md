@@ -165,9 +165,48 @@ Using the username/password in the site, I got:
 ## authorized persons only
 ## simple cipher 
 ## undisputed
+
+A .ext4. Huuuum... I had to mount this... so:
+
+![undisputed](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/undisputed.png)
+
 ## sound
+
+Well, this one is about a mp3 file. Opening it with audacity, reversing the audio and slowing the speed, I heard a woman speaking:
+
+```
+The flag is sha256 of upside_down
+```
+
 ## nosignal
+
+Well, two meaningless images, apparently. Opening the two images on gimp and changing the Opacity of the layer to 50% of one of them, i got: 
+
+![nosignal](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/nosignal.png)
+
 ## hidden flag - medium
+
+So, this one ie very cool! The file `hide_medium` is a ELF file, so i tried to use strings but, as expected, it returned:  
+
+![hidemedium-1](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/hidemedium-1.png)
+
+```
+It's not that easy as you think so
+```  
+
+So, I thouthg: It's time for gdb! Opening gdb, the first think I did was use `disass main` to see what was happening, but it was useless.  
+
+![hidemedium-2](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/hidemedium-2.png)
+
+Using the `info functions` command, I found a function with a real shameless name: `print_flag`:    
+
+![hidemedium-3](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/hidemedium-3.png)
+
+In this moment, I had to enter in that function but, the normal flux of the program don't do this.  So, i had to compile a new part of the code using `compile code -- print_flag()`after a breakpoint on the address :  
+
+![hidemedium-4](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/hidemedium-4.png)
+
+And there it is: 841f980abd04b26fe804ca0c207a574bef504cb6a3c3599a449e845ca993d2cf
 
 ## lost
 
@@ -237,7 +276,20 @@ So, that's the flag: 47f5847d92e9fbbd4d762036ff684ccde6a80d3a171c4dcd0b724fae258
 ![hidden](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/hidden.png)
 
 ## location 51
+
+When I clicked on the link, I was asked for a password... opening the page source code, I found some code on javascript, then i tried to execute that on console:  
+
+![location-1](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/location-1.png)
+
+Clicking on the link again, i noticed that is was redirected from '/index.html' to '/trap.html'. So, I had to access the index page. So, I tring to access the index source directly using view-source:http://hack.bckdr.in/LOCATION-51/index.html:  
+
+![location-2](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/location-2.png)
+
+
 ## path
+
+Weel, the challenge say that there is a flag in the domaing flag.bckdr.in. I had to do a dns recon. Using the python script downloaded in https://github.com/darkoperator/dnsrecon, I got: 
+
 ## robot
 ## batman
 
