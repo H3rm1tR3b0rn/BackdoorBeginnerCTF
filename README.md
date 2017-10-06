@@ -161,9 +161,23 @@ Using the username/password in the site, I got:
 ![SecretArea-5](https://github.com/Dalbukerk/BackdoorBeginnerCTF/blob/master/SecretArea-5.png)  
 
 ## file reader
+
+So, the file reader show what is in a text file and the flag is in the parent directory of /FLREAD/app/viewer. Writing '.../flag.php' on the file reader, I got:  
+
+```javascript
+<?php
+	$flag = "93b9e8c732573769fac43d744fad4120bde8d1f98cc1f6e9011045ff72f45b96";  
+?>
+```
+
 ## browser
+
 ## authorized persons only
+
 ## simple cipher 
+the text 'lkw qlby av qtpfyieidwnpawseycnicsdynjicklqevaciipoksabidpletelbmlpskkupsrrl' on the link in the challeng seems to be a text encrypted by a simple substitutional cryptography. After trying decrypt this with vigenere with SDSLabs as a key, I got:
+'the flag is yipegqbqswmxitatybvqzasymrqzsaqddizqxpnsaxjxdotmqmabltxpszuoazot'
+
 ## undisputed
 
 A .ext4. Huuuum... I had to mount this... so:
@@ -292,6 +306,12 @@ Weel, the challenge say that there is a flag in the domaing flag.bckdr.in. I had
 
 ## robot
 ## batman
+
+Noticing that the end url change when we click on differentes parts of the site, I thought I should try to change the url by myself.  
+With the link "http://hack.bckdr.in/BATMAN/?st=10", I got:
+
+"Flag is "y0u_4r3_b47m4n"
+You are Batman now. Proudly say, I'm Batman"
 
 ## wahtzdis
 
